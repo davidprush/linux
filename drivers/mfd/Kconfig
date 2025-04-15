@@ -285,6 +285,18 @@ config MFD_CS42L43_SDW
 	  Select this to support the Cirrus Logic CS42L43 PC CODEC with
 	  headphone and class D speaker drivers over SoundWire.
 
+config MFD_MACSMC
+	tristate "Apple Silicon SMC"
+	select MFD_CORE
+	help
+	  This driver implements support for the SMC (System Management
+	  Controller) in Apple Macs. In contrast to the existing applesmc driver,
+	  it uses pluggable backends that allow it to support different SMC
+	  implementations, and uses the MFD subsystem to expose the core SMC
+	  functionality so that specific features (gpio, hwmon, battery, etc.) can
+	  be implemented by separate drivers in their respective downstream
+	  subsystems.
+
 config MFD_MADERA
 	tristate "Cirrus Logic Madera codecs"
 	select MFD_CORE
